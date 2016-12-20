@@ -27,10 +27,11 @@ define(['lodash', 'contrail-view', 'monitor-infra-controlnode-model', 'node-colo
                             class: 'mon-infra-chart chartMargin',
                             chartOptions:{
                                 title: ctwl.CONTROLNODE_SUMMARY_TITLE,
-                                subTitle:"BGP, XMPP Reach/Unreach Route Updates (in 3 mins)",
+                                tooltipCustomTitle:"Updates sent per Control Node",
+                                subTitle:"BGP, XMPP Reach/Unreach route updates (in 3 mins)",
                                 valueText:"",
                                 xAxisLabel: '',
-                                yAxisLabel: 'Updates sent per Control Node',
+                                yAxisLabel: 'Updates Sent',
                                 groupBy: 'Source',
                                 yField: 'SUM(tx_update_stats.reach)',
                                 colors: colorFn,
@@ -64,8 +65,9 @@ define(['lodash', 'contrail-view', 'monitor-infra-controlnode-model', 'node-colo
                         viewConfig : {
                             chartOptions:{
                                 xAxisLabel: '',
-                                yAxisLabel: 'Updates received per Control Node',
-                                subTitle:"BGP, XMPP Reach/Unreach Route Updates (in 3 mins)",
+                                yAxisLabel: 'Updates Received',
+                                tooltipCustomTitle:"Updates received per Control Node",
+                                subTitle:"BGP, XMPP Reach/Unreach route updates (in 3 mins)",
                                 title: ctwl.CONTROLNODE_SUMMARY_TITLE,
                                 groupBy: 'Source',
                                 yField: 'SUM(rx_update_stats.reach)',
