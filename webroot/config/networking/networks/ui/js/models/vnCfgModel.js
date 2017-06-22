@@ -1183,6 +1183,11 @@ define([
                 delete newVNCfgData.sVlanId;
                 delete newVNCfgData.disable;
                 delete newVNCfgData.user_created_vxlan_mode;
+                delete newVNCfgData.Application;
+                delete newVNCfgData.Deployment;
+                delete newVNCfgData.Labels;
+                delete newVNCfgData.Site;
+                delete newVNCfgData.Tier;
 
                 postData['virtual-network'] = newVNCfgData;
 

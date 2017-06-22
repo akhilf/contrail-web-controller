@@ -1570,6 +1570,11 @@ define([
                 delete(newPortData.mirrorToNHMode);
                 delete(newPortData.user_created_bridge_domain);
                 delete(newPortData.user_created_bridge_domain_list);
+                delete(newPortData.Application);
+                delete(newPortData.Deployment);
+                delete(newPortData.Labels);
+                delete(newPortData.Site);
+                delete(newPortData.Tier);
                 if("parent_href" in newPortData) {
                     delete(newPortData.parent_href);
                 }
