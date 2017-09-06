@@ -420,6 +420,14 @@ define([
                                                     }
                                                 },
                                                 {
+                                                    label: 'DNS Server Address',
+                                                    key: 'uuid',
+                                                    templateGenerator: 'TextGenerator',
+                                                    templateGeneratorConfig: {
+                                                        formatter: 'subnetDNSAddressFormatter',
+                                                    }
+                                                },
+                                                {
                                                     label: 'Ecmp Hashing Fields',
                                                     key: 'uuid',
                                                     templateGenerator: 'TextGenerator',
@@ -717,6 +725,11 @@ define([
     }
     this.subnetDNSFormatter = function (v, dc) {
         var retStr =  formatVNCfg.subnetDNSFormatter(null,
+                                        null, null, null, dc);
+        return retStr.length ? retStr : '-';
+    }
+    this.subnetDNSAddressFormatter = function (v, dc) {
+        var retStr =  formatVNCfg.subnetDNSAddressFormatter(null,
                                         null, null, null, dc);
         return retStr.length ? retStr : '-';
     }

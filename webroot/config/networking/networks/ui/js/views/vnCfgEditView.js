@@ -184,7 +184,7 @@ define([
         }
     });
 
-    function getVNCfgViewConfig (disableOnEdit, selectedProjId) {
+    function getVNCfgViewConfig (disableOnEdit,selectedProjId) {
         var prefixId = ctwl.CFG_VN_PREFIX_ID,
             ipamPostData = {};
         ipamPostData.data = [];
@@ -1062,7 +1062,7 @@ define([
                                              view: "FormEditableGridView",
                                              viewConfig: {
                                                  path : 'user_created_dns_servers',
-                                                 class: 'col-xs-12',
+                                                 class: 'col-xs-6',
                                                  validation:
                                                 'subnetDNSModelConfigValidations',
                                                 templateId: cowc.TMP_EDITABLE_GRID_ACTION_VIEW,
@@ -1104,9 +1104,20 @@ define([
                                                     }
                                                  ]
                                              }
+                                         },
+                                         {
+                                             elementId: "dns_server_address_input",
+                                             view: "FormInputView",
+                                             viewConfig: {
+                                                 path: "dns_server_address",
+                                                 placeholder: 'Enter DNS server address or Empty for auto allocate',
+                                                 dataBindValue: "dns_server_address",
+                                                 label: "DNS Address",
+                                                 class: "col-xs-6"
+                                             }
                                          }
                                         ]
-                                    },
+                                    }
                                     ]
                                 }
                             }]

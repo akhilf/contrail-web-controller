@@ -95,7 +95,8 @@ define([
             'disable': false,
             'address_allocation_mode': 'user-defined-subnet-only',
             'user_created_flat_subnet_ipam': [],
-            'user_created_ip_fabric_forwarding': false
+            'user_created_ip_fabric_forwarding': false,
+            'dns_server_address': null
         },
 
         formatModelConfig: function (modelConfig) {
@@ -126,7 +127,8 @@ define([
             modelConfig['user_created_forwarding_mode'] =
                 getValueByJsonPath(modelConfig,
                 'virtual_network_properties;forwarding_mode', 'default', false);
-
+            modelConfig['dns_server_address'] = getValueByJsonPath(modelConfig,
+                    'network_ipam_refs;0;attr;ipam_subnets;0;dns_server_address', null);
             //ip fabric forwarding
             var ipFabricVn = getValueByJsonPath(modelConfig,
                     'virtual_network_refs;0;to;2', null);
@@ -136,7 +138,6 @@ define([
             } else {
                 modelConfig['user_created_ip_fabric_forwarding'] = false;
             }
-
             this.readSubnetHostRoutes(modelConfig);
             this.readRouteTargetList(modelConfig, 'user_created_route_targets');
             this.readRouteTargetList(modelConfig, 'user_created_import_route_targets');
@@ -643,7 +644,6 @@ define([
             var disabledDNS = [{'dhcp_option_name': '6', 'dhcp_option_value' : '0.0.0.0'}];
             for(var i = 0; i < subnetCollection.length; i++) {
                 var subnet = $.extend(true, {}, subnetCollection[i].model().attributes);
-
                 if (dnsServers.length && subnet.user_created_enable_dns) {
                     this.setDHCPOptionList(subnet, dnsServers);
                 } else if(!dnsServers.length && subnet.user_created_enable_dns){
@@ -696,7 +696,7 @@ define([
                 if(dhcpOption.length === 0) {
                     delete subnet['dhcp_option_list'];
                 }
-
+                subnet['dns_server_address'] = this.model().attributes['dns_server_address'];
                 delete subnet['errors'];
                 delete subnet['locks'];
                 delete subnet['disable'];

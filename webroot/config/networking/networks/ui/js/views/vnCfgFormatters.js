@@ -562,6 +562,11 @@ define([
                 (cd == -1 ? [] : '-');
         };
 
+        this.subnetDNSAddressFormatter = function(d, c, v, cd, dc) {
+            var ipamObjs = getValueByJsonPath(dc,
+                    'network_ipam_refs;0;attr;ipam_subnets;0;dns_server_address', []);
+            return ipamObjs;
+        };
         /*
          * @routeTargetFormatter
          */
