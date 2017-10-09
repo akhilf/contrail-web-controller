@@ -131,14 +131,19 @@ define([
     function getConfiguration (viewConfig) {
         var loadingText = 'Loading Firewall Policies..';
         var emptyText = 'No Firewall Policy Found.';
+        var gridTitle;
         if(viewConfig.viewConfig.mode === 'add' || viewConfig.viewConfig.mode === 'edit'){
             loadingText = 'No Associated Firewall Policies';
             emptyText = 'No Associated Firewall Policies';
+            gridTitle = ctwl.TITLE_ASSOCIATED_POLICY;
+        }
+        else{
+            gridTitle = "";
         }
         var gridElementConfig = {
             header: {
                 title: {
-                    text: ''
+                    text: gridTitle
                 },
                advanceControls: getHeaderActionConfig(viewConfig)
             },
