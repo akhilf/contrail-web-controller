@@ -879,10 +879,6 @@ div#aps-landing-container[style='display: block;'], div#aps-landing-container[st
 #security-policy-tag-grid .slick-viewport, #fw_security_policy_as_grid_view .slick-viewport,
 #fw_security_policy_service_gp_grid_view .slick-viewport{
     overflow-x: hidden !important;
-    margin:-35px 18px 2px 0;
-    position:fixed;
-    right:10px;
-    top:120px;
 }
 .confirmation-popover {
     position: absolute;
