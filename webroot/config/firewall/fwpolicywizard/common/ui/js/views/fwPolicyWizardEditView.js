@@ -623,12 +623,6 @@ define([
                                     $('.modal-header-title').text(ctwc.APS_MODAL_HEADER);
                                     $('#applicationpolicyset_policy_wizard .alert-error').hide();
                                     $("#aps-main-back-button").show();
-                                    if(params.model.policy_name() != ''){
-                                        params.model.policy_name('');
-                                    }
-                                    if(params.model.policy_description() != ''){
-                                        params.model.policy_description('');
-                                    }
                                     $('#applicationpolicyset_policy_wizard .alert-error').show();
                                     self.renderObject(options, 'addIcon', self);
                                     $('.modal-header-title').text('');
@@ -710,6 +704,12 @@ define([
             title: "Select set",
             stepType: "step",
             onNext: function (options) {
+                if(options.model.policy_name() != ''){
+                    options.model.policy_name('');
+                }
+                if(options.model.policy_description() != ''){
+                    options.model.policy_description('');
+                }
                 options.checkFlow = true;
                 $('#applicationpolicyset_policy_wizard .alert-error').hide();
                 return true;

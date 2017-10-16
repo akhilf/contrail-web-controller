@@ -197,6 +197,7 @@ define([
                         policyEditSet.mode = 'add';
                         policyEditSet.state = viewConfig.mode;
                         $("#aps-overlay-container").hide();
+                        $("#overlay-background-id").removeClass("overlay-background");
                         $('#applicationpolicyset_policy_wizard .actions').css("display", "block");
                         $('#aps-main-back-button').hide();
                         $('#applicationpolicyset_policy_wizard a.btn-primary').trigger("click");
