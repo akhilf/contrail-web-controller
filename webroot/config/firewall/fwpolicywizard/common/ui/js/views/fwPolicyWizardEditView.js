@@ -702,7 +702,7 @@ define([
                                 }*/
                            });
                         }else{
-                            params.model.firewall_rules = Knockback.collectionObservable([]);
+                            //params.model.firewall_rules = Knockback.collectionObservable([]);
                         }
                         if($("#policy_name input").length == 1){
                            $("#policy_name input").attr('disabled','disabled');
