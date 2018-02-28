@@ -192,6 +192,20 @@ define([
                             rows: [
                                 {
                                     columns: [
+//                                        {
+//                                            elementId: 'community_match_all_checkbox',
+//                                            name: "Community All",
+//                                            view: "FormCheckboxView",
+//                                            viewConfig: {
+//                                                path: 'community_match_all',
+//                                                //visible: false,
+//                                                label: "Community match all",
+//                                                templateId: cowc.TMPL_CHECKBOX_LABEL_RIGHT_VIEW,
+//                                                dataBindValue: 'community_match_all()',
+//                                                //class: "col-xs-6",
+//                                                width:300,
+//                                            }
+//                                        },
                                         {
                                             elementId: 'from-collection',
                                             view: "FormCollectionView",
@@ -254,10 +268,24 @@ define([
                                                                     dataBindValue: "additionalValue()",
                                                                     dataBindOptionList: 'additionalValueDS()',
                                                                     placeholder: '',
-                                                                    width: 80,
+                                                                    width: 160,
                                                                     elementConfig: {
                                                                         defaultValueId: 0
                                                                     }
+                                                                }
+                                                            },
+                                                            {
+                                                                elementId: 'community_match_all_checkbox',
+                                                                name: "Community All",
+                                                                view: "FormCheckboxView",
+                                                                viewConfig: {
+                                                                    path: 'community_match_all',
+                                                                    visible: 'name()() == "community"',
+                                                                    label: "Community match all",
+                                                                    templateId: cowc.TMPL_CHECKBOX_LABEL_RIGHT_VIEW,
+                                                                    dataBindValue: 'community_match_all()',
+                                                                    //class: "col-xs-6",
+                                                                    width:300,
                                                                 }
                                                             }
                                                         ]

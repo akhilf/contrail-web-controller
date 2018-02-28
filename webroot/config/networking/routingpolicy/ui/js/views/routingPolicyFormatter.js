@@ -252,6 +252,7 @@ define([
                 var key = fromObj[i].model().attributes["name"](),
                     val = fromObj[i].model().attributes["value"]();
                     protocol = fromObj[i].model().attributes["additionalValue"]();
+                    communityMatchll = fromObj[i].model().attributes.community_match_all();
                 if (val != "") {
                     switch (key) {
                         case "community" : {
@@ -281,6 +282,7 @@ define([
                 returnFromObj["prefix"] = [];
                 returnFromObj["prefix"] = prefixArr;
             }
+            returnFromObj["community_match_all"] = communityMatchll;
             return returnFromObj;
         };
         // To build the post Object for Then in each term

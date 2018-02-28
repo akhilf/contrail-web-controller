@@ -11,6 +11,7 @@ define([
 ], function (_, Backbone, Knockout, ContrailModel, RoutingPolicyFormatter) {
     var routingPolicyFormatter = new RoutingPolicyFormatter();
     var self;
+    var count = 0;
     var RoutingPolicyTermFromModel = ContrailModel.extend({
 
         defaultConfig: {
@@ -18,6 +19,7 @@ define([
             value : '',
             additionalValue: '',
             additionalValueDS: [],
+            community_match_all:false,
         },
 
         constructor: function (parentModel, modelData) {
@@ -58,10 +60,14 @@ define([
         getNameOptionList: function(viewModel) {
             var namesOption = ['community', 'prefix', 'protocol'];
             var termFromName = viewModel.model().attributes.name();
-
+//            if (termFromName == "community") {
+//                $('.data-cell-community_match_all_checkbox').show();
+//            }
             if (termFromName == "prefix") {
+               // $('.data-cell-community_match_all_checkbox').hide();
                 viewModel.model().attributes.additionalValueDS(self.getPrefixConditionOptionList(viewModel));
             } else if(termFromName == "protocol") {
+               // $('.data-cell-community_match_all_checkbox').hide();
                 viewModel.model().attributes.additionalValueDS(self.getProtocolConditionOptionList(viewModel));
                 viewModel.model().attributes.value("");
             }
@@ -81,7 +87,11 @@ define([
                 {id: 'xmpp', text: 'xmpp'},
                 {id: 'static', text: 'static'},
                 {id: 'service-chain', text: 'service-chain'},
-                {id: 'aggregate', text: 'aggregate'}
+                {id: 'aggregate', text: 'aggregate'},
+                {id: 'interface', text: 'interface'},
+                {id: 'interface-static', text: 'interface-static'},
+                {id:  'service-interface', text: 'service-interface'},
+                {id:  'BGPaaS', text: 'BGPaaS'}
             ]
         },
         //TODO: Add appropriate validations.
